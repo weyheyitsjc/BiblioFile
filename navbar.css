@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+.bg-custom {
+    background-color: #D9C9BE;
+}
+
+.logo-name1 {
+    font-size: 1.8em !important;
+}
+
+.logo-name2 {
+    font-size: 1.8em !important;
+    font-style: italic;
+}
+
+.input-group {
+    width: 20% !important;
+    /* background-color: white !important; */
+    /* border-top-right-radius: 25% !important;
+    border-bottom-right-radius: 25% !important; */
+}
+
+.input-group-text {
+    padding: 0 !important;
+    border-left: none;
+    /* border-top-right-radius: 25% !important;
+    border-bottom-right-radius: 25% !important; */
+}
+
+.btn.btn-light, .btn.btn-light:hover, .btn.btn-light:active, .btn.btn-light:visited {
+    /* width: 20% !important; */
+    /* height: 20% !important; */
+    /* outline: solid red 1px !important; */
+    background-color: white;
+}
