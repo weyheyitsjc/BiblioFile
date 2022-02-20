@@ -1,5 +1,6 @@
 from flask import Flask, render_template, g, request, redirect
 from database import DB
+import os
 
 # def main():
 
@@ -9,7 +10,8 @@ from database import DB
 #     data = db.getUser("jacy@gmail.com")
 
 app = Flask(__name__)
-app.secret_key = b'lkj98t&%$3rhfSwu3D'
+secret_key = os.urandom(32)
+app.config['SECRET_KEY'] = secret_key
 
 def get_db():
     db = getattr(g, '_database', None)
@@ -24,16 +26,21 @@ def close_connection(exception):
     if db is not None:
         db.close()
 
-@app.route('/signUp', methods=['GET', 'POST'])
-def create_user():
+@app.route('/')
+def index():
+    return render_template('/index.html')
+
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
     if request.method == 'POST':
         name = request.form['name']
-        username = request.form['username']
+        email = request.form['email']
         password = request.form['password']
-        if name and username and password:
-            get_db().create_user(name, username, password)
-            return redirect('/index.html')
-    return render_template('signUp.html')
+        print(name + email + password)
+        if name and email and password:
+            get_db().createUser(name, email, password)
+            return redirect('/')
+    return render_template('/signup.html')
 
 if __name__ == "__main__":
-    app.run(host='127.0.0.1', port=8080, debug=True)
+    app.run(debug=True)
