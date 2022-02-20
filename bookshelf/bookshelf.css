@@ -1,0 +1,29 @@
+.shelf {
+    display: block;
+    z-index: 9;
+    content: url("../pics/shelf_single.png");
+    position: relative;
+    width: 75%;
+    height: 20vh;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .stuffonshelf {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: relative;
+    z-index: 10;
+    margin-bottom: -30px; /* This is what actually puts the stuff ON the shelf instead of hovering above it */
+    width: 60vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .book { 
+    width: 13%;
+    height: 27vh;
+    padding: 5px;
+    background-color: magenta;
+  }
