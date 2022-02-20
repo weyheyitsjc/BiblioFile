@@ -9,7 +9,7 @@ import os
 #     db.createUser("jacy", "jacy@gmail.com", "password")
 #     data = db.getUser("jacy@gmail.com")
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='public', static_url_path='')
 secret_key = os.urandom(32)
 app.config['SECRET_KEY'] = secret_key
 

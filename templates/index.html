@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+{% set active = "Home" %}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,16 +25,20 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-custom">
+        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-custom">
             <a class="navbar-brand" href="javascript:;">
             <img src="./pics/logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
                 <span class="logo-name1">Biblio</span><span class="logo-name2">File</span>
             <img>
             </a>
-        </nav>
+        </nav> -->
+
+        {% block content %}
 
         <h1>Sign Up</h1>
 
         <a href="/signup" class="button">sign up</a>
+
+        {% endblock %}
     </body>
 </html>
