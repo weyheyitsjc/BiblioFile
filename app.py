@@ -1,13 +1,6 @@
-from flask import Flask, render_template, g, request, redirect
+from flask import Flask, render_template, g, request, redirect, session
 from database import DB
 import os
-
-# def main():
-
-#     db = DB()
-
-#     db.createUser("jacy", "jacy@gmail.com", "password")
-#     data = db.getUser("jacy@gmail.com")
 
 app = Flask(__name__, static_folder='public', static_url_path='')
 secret_key = os.urandom(32)
@@ -36,11 +29,37 @@ def signup():
         name = request.form['name']
         email = request.form['email']
         password = request.form['password']
-        print(name + email + password)
         if name and email and password:
             get_db().createUser(name, email, password)
             return redirect('/')
     return render_template('/signup.html')
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    message = None
+    if request.method == 'POST':
+        email = request.form['email']
+        typed_password = request.form['password']
+        if email and typed_password:
+            user = get_db().getUser(email)
+            if user:
+                if (typed_password == user['password']):
+                    session['user'] = user
+                    return redirect('/')
+                else:
+                    message = "Email and password do not match, please try again"
+            else:
+                message = "Email and password do not match, please try again"
+        elif email and not typed_password:
+            message = "Missing password, please try again"
+        elif not email and typed_password:
+            message = "Missing email, please try again"
+    return render_template('login.html', message=message)
+
+@app.route('/logout')
+def logout():
+    session.pop('user', None)
+    return redirect('/')
 
 if __name__ == "__main__":
     app.run(debug=True)
