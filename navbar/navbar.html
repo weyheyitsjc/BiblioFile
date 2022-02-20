@@ -1,19 +1,8 @@
 <!DOCTYPE html>
-<!-- 
-    Author(s): Jacy Yu,
-               Justin Yin,
-               Yi Yang,
-               Cameron Fritz
-    Date Created: 3/1/2020
-    Last Updated: 3/17/2020
-    File: index.html
-    Purpose: Home page for the website dressme
--->
-<html lang="en">
 
+<html lang="en">
   <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
       <title>BilioFile</title>
       <link rel="stylesheet" href="navbar.css">
       <script type="text/javascript" src="navbar.js" defer></script>
@@ -21,6 +10,7 @@
       <!-- font awesome icons -->
       <script src="https://kit.fontawesome.com/d35ee7a510.js" crossorigin="anonymous"></script>
 
+      <!-- bootstrap 4-->
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
       <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -28,25 +18,26 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-custom">
+    <nav class="navbar navbar-expand-lg navbar-light bg-custom fixed-top">
       <a class="navbar-brand" href="javascript:;">
         <img src="./pics/logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
           <span class="logo-name1">Biblio</span><span class="logo-name2">File</span>
         <img>
       </a>
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="input-group">
-        <input type="text" class="form-control" aria-describedby="basic-addon2">  
+        <input type="text" class="form-control" placeholder="Title / Author">  
         <div class="input-group-append">
-          <span class="input-group-text" id="basic-addon2"><button class="btn btn-light" type="button"><i class="fa fa-search fa-lg"></i></button></span>
-          <!-- <span><button class="btn btn-light" type="button"><i class="fa fa-search fa-lg"></i></button></span> -->
+          <span class="input-group-text">
+            <button class="btn" type="button"><i class="fa fa-search fa-lg"></i></button></span>
         </div>
       </div>
 
-      <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
             <a class="nav-link" href="#">Home</a>
@@ -54,19 +45,19 @@
           <li class="nav-item">
             <a class="nav-link" href="#">My Books</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
         </ul>
-      </div> -->
+
+          <ul class="navbar-nav ml-auto">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Hi, User!
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">My Account</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Sign Out</a>
+              </div>
+          </ul>
+      </div>
     </nav>
   </body>
 
