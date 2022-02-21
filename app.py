@@ -1,10 +1,11 @@
 from flask import Flask, render_template, g, request, redirect, session
-from database import DB
+from database import DB, books
 import os
 
 app = Flask(__name__, static_folder='public', static_url_path='')
 secret_key = os.urandom(32)
 app.config['SECRET_KEY'] = secret_key
+name = session['user']['name']
 
 def get_db():
     db = getattr(g, '_database', None)
@@ -12,6 +13,11 @@ def get_db():
         db = DB()
     return db
 
+def bookDB(name):
+    booksDB = getattr(g, '_database', None)
+    if booksDB is None:
+        booksDB = books(name)
+    return booksDB
 
 @app.teardown_appcontext
 def close_connection(exception):
@@ -55,6 +61,17 @@ def login():
         elif not email and typed_password:
             message = "Missing email, please try again"
     return render_template('login.html', message=message)
+
+@app.route('/addbook', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        password = request.form['password']
+        if name and email and password:
+            get_db().createUser(name, email, password)
+            return redirect('/')
+    return render_template('/addbook.html')
 
 @app.route('/logout')
 def logout():
