@@ -1,48 +1,24 @@
 {% extends 'base.html' %}
 {% set active = "Home" %}
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-        <title>BilioFile</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{% block content %}
+<!-- <br/><br/><br/><br/> -->
+<div class="trending">Trending Books</div>
+<div class="stuffonshelf">
+    <div class="book"><img src="/pics/cat_in_the_hat.jpg"></div>
+    <div class="book"><img src="/pics/drug_safety.jpg"></div>
+    <div class="book"><img src="/pics/mcdonalds_cover.jpg"></div>
+    <div class="book"><img src="/pics/pepe_cover.jpeg"></div>
+    <div class="book"><img src="/pics/flat_earth_cover.jpg"></div>
+</div>
+<img class="shelf">
 
-        <link rel="stylesheet" href="/css/navbar.css">
-        <link rel="stylesheet" href="/css/bookshelf.css">
-        <script type="text/javascript" src="navbar.js" defer></script>
-
-        <!-- font awesome icons -->
-        <script src="https://kit.fontawesome.com/d35ee7a510.js" crossorigin="anonymous"></script>
-
-        <!-- bootstrap 4-->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    </head>
-
-    <body>
-        {% block content %}
-        <!-- <br/><br/><br/><br/> -->
-        <div class="trending">Trending Books</div>
-        <div class="stuffonshelf">
-            <div class="book"><img src="../public/pics/cat_in_the_hat.jpg"></div>
-            <div class="book"><img src="../public/pics/drug_safety.jpg"></div>
-            <div class="book"><img src="../public/pics/mcdonalds_cover.jpg"></div>
-            <div class="book"><img src="../public/pics/pepe_cover.jpeg"></div>
-            <div class="book"><img src="../public/pics/flat_earth_cover.jpg"></div>
-        </div>
-        <img class="shelf">
-        
-        <div class="stuffonshelf">
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-            <div class="book"></div>
-        </div>
-        <img class="shelf">
-        {% endblock %}
-    </body>
-</html>
+<div class="stuffonshelf">
+    <div class="book"></div>
+    <div class="book"></div>
+    <div class="book"></div>
+    <div class="book"></div>
+    <div class="book"></div>
+</div>
+<img class="shelf">
+{% endblock %}
