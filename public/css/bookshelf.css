@@ -32,9 +32,8 @@
 
 .book { 
   width: 13%;
-  height: 23vmin;
+  height: 24vh;
   padding: 5px;
-  background-color: magenta;
   margin-left: auto;
   margin-right: auto;
 }
@@ -43,14 +42,36 @@
   max-width: none !important;
 }
 
-@media only screen and (max-width: 1024px) {
+
+/* 1024 px and less screen size */
+@media only screen and (min-width: 1024px) and (max-width: 1440px) {
   .book {
-    height: 15vmin;
+    width: 15%;
+    margin-bottom: -0.2vh;
+    height: 24vmin; 
   }
 }
 
-@media only screen and (max-width: 320px) {
+/* 1024 px and larger screen size */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
   .book {
-    /* height: 17vmin; */
+    width: 15%;
+    margin-bottom: -.5vh;
+    height: 24vmin;
+  }
+}
+
+@media only screen and (min-width: 425px) and (max-width: 767px) {
+  .book {
+    width: 15%;
+    height: 24vmin;
+    margin-bottom: -1.5vh;
+  }
+}
+
+@media only screen and (max-width: 424px) {
+  .book {
+    height: 24vmin;
+    margin-bottom: -2vh;
   }
 }
