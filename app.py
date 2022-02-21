@@ -5,7 +5,6 @@ import os
 app = Flask(__name__, static_folder='public', static_url_path='')
 secret_key = os.urandom(32)
 app.config['SECRET_KEY'] = secret_key
-name = session['user']['name']
 
 def get_db():
     db = getattr(g, '_database', None)
@@ -63,14 +62,14 @@ def login():
     return render_template('login.html', message=message)
 
 @app.route('/addbook', methods=['GET', 'POST'])
-def signup():
+def addbook():
     if request.method == 'POST':
-        name = request.form['name']
-        email = request.form['email']
-        password = request.form['password']
-        if name and email and password:
-            get_db().createUser(name, email, password)
-            return redirect('/')
+        # name = request.form['name']
+        # email = request.form['email']
+        # password = request.form['password']
+        # if name and email and password:
+        #     get_db().createUser(name, email, password)
+        return redirect('/')
     return render_template('/addbook.html')
 
 @app.route('/logout')
