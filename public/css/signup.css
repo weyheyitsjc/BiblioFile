@@ -1,0 +1,128 @@
+.sign-up-container {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    align-content: center !important;
+    text-align: center !important;
+    align-items: center !important;
+    z-index: 10 !important;
+    display: block;
+    max-width: 85vw;
+    height: auto;
+    width: 50vw;    
+    padding-left: 10vw;
+    padding-right: 10vw;
+    outline: solid lightgray;
+    border-radius: 10px;
+}
+
+.sign-up-title {
+    font-size: 5vmin;
+    position: relative !important;
+    font-weight: 600 !important;
+}
+
+.sign-up-desc {
+    font-size: 2vmin;
+    position: relative !important;
+    font-style: italic;
+}
+
+.signup-form-container {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    align-content: center !important;
+    text-align: center !important;
+    align-items: center !important;
+    padding-bottom: 3vh !important;
+    padding-top: 3vh !important;
+}
+
+.mb-3 {
+    align-content: left !important;
+    text-align: left !important;
+    align-items: left !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 70%;
+}
+
+.form-label {
+    font-size: 5vmin;
+}
+
+.form-control2 {
+    height: 6vh;
+    width: 100% !important;  
+    align-content: left !important;
+    text-align: left !important;
+    align-items: left !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.btn.btn-primary, .btn.btn-primary:active:active, .btn.btn-primary:focus {
+    background-color: #D9C9BE !important;
+    color: black !important;
+    border-color: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.btn.btn-primary:active:active {
+    background-color: antiquewhite !important;
+    color: black;
+    border-color: none;
+}
+/* zoom in */
+@media only screen and (max-width: 724px) {
+    .form-control2 {
+        height: 13vh;
+    }
+
+    .sign-up-title {
+        font-size: 10vmin;
+    }
+    
+    .sign-up-desc {
+        font-size: 5vmin;
+        position: relative !important;
+        font-style: italic;
+    }
+}
+
+/* zoom out */
+@media only screen and (min-width: 2100px) {
+    .sign-up-title {    
+        font-size: 5vmin;
+    }
+}
+
+@media only screen and (min-width: 2200px) and (max-width:2300px) {
+    .sign-up-title {
+        font-size: 4.5vmin;
+        position: relative !important;
+        font-style: italic;
+    }
+    .sign-up-desc {
+        font-size: 2vmin;
+        position: relative !important;
+        font-style: normal;
+    }
+}
+
+@media only screen and (min-width: 2300px) {
+    .sign-up-title {
+        font-size: 2.5vmin;
+        position: relative !important;
+        font-style: italic;
+    }
+    .sign-up-desc {
+        font-size: 1.2vmin;
+        position: relative !important;
+        font-style: normal;
+    }
+
+    .signup-form-container {
+        padding-top: 1vh !important;
+    }
+}
