@@ -24,37 +24,48 @@
     <div class="form-group row">
         <label for="example-text-input" class="col-2 col-form-label">Start Date</label>
         <div class="col-4">
-            <input class="form-control" type="date" id="datemin" min="2022-20-02" name="startDate">
+            <input class="form-control" type="date" id="datemin" name="startDate">
         </div>
     </div>
     <div class="form-group row">
         <label for="example-text-input" class="col-2 col-form-label">End Date</label>
         <div class="col-4">
-            <input class="form-control" type="date" id="datemin" min="2022-20-02" name="endDate">
+            <input class="form-control" type="date" id="datemin" name="endDate">
         </div>
     </div>
     <div class="form-group row">
         <label for="example-text-input" class="col-2 col-form-label">Rating</label>
         <div class="col-4">
-            <input class="form-control" type="number" name="rating">
+            <select id ="rating" name="rating">
+                <option type="number" value="5">5</option>
+                <option type="number" value="4">4</option>
+                <option type="number" value="3">3</option>
+                <option type="number" value="2">2</option>
+                <option type="number" value="1">1</option>
+            </select>
         </div>
     </div>
     <div class="form-group row">
         <label for="example-text-input" class="col-2 col-form-label">Genre(s)</label>
         <div class="col-4">
-            <input class="form-control" type="text" name="genres" multiple>
+            <select multiple id ="genres" name="genres">
+                <option value="fantasy">fantasy</option>
+                <option value="fiction">fiction</option>
+                <option value="romance">romance</option>
+                <option value="mystery">mystery</option>
+            </select>
         </div>
     </div>
     <div class="form-group row">
         <label for="example-text-input" class="col-2 col-form-label">Book cover: (select file)</label>
         <div class="col-4">
-            <input class="form-control" type="file" id="files" name="files" multiple>
+            <input class="form-control" type="file" id="cover" name="cover" multiple>
         </div>
     </div>
     <div class="form-group row">
         <label for="example-text-input" class="col-2 col-form-label">Review</label>
         <div class="col-4">
-            <input class="form-control" type="text" name="review">
+            <textarea name="review" rows="10" cols="30"></textarea>
         </div>
     </div>
     <div class="row">

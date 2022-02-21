@@ -64,9 +64,27 @@ class books:
         );""")
         self.conn.commit()
 
-    def addBook(self, title, author, endDate, rating, genres, startDate = NULL, cover = NULL, review = NULL):
+    def addBook(self, title, author, startDate, endDate, rating, genres, cover, review):
         self.c.execute('INSERT INTO books VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [title, author, startDate, endDate, rating, genres, cover, review])
         self.conn.commit()
+
+    def getBook(self, title):
+        self.c.execute('SELECT * FROM books WHERE title=?', [title])
+        data = self.c.fetchall()
+        if data:
+            d = data[0]
+            return {
+                'title': d[0],
+                'author': d[1],
+                'startDate': d[2],
+                'endDate': d[3],
+                'rating': d[4],
+                'genres': d[5],
+                'cover': d[6],
+                'review': d[7]
+            }
+        else:
+            return None
     
     def close(self):
         self.conn.close()

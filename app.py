@@ -36,6 +36,7 @@ def signup():
         password = request.form['password']
         if name and email and password:
             get_db().createUser(name, email, password)
+            bookDB(name)
             return redirect('/')
     return render_template('/signup.html')
 
@@ -63,12 +64,22 @@ def login():
 
 @app.route('/addbook', methods=['GET', 'POST'])
 def addbook():
-    if request.method == 'POST':
-        # name = request.form['name']
-        # email = request.form['email']
-        # password = request.form['password']
-        # if name and email and password:
-        #     get_db().createUser(name, email, password)
+    if (session['user'] != None) and (request.method == 'POST'):
+        title = request.form['title']
+        author = request.form['author']
+        startDate = request.form['startDate']
+        endDate = request.form['endDate']
+        rating = request.form.get('rating')
+        genres = request.form.getlist('genres')
+        cover = request.form['cover']
+        review = request.form['review']
+
+        stringGenres = ""
+        for i in genres:
+            stringGenres += i + " "
+
+        if title and author and endDate and rating and genres:
+            bookDB(session['user']['name']).addBook(title, author, startDate, endDate, rating, stringGenres, cover, review)
         return redirect('/')
     return render_template('/addbook.html')
 
