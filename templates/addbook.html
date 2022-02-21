@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-custom">
+    <a class="navbar-brand" href="javascript:;">
+    <img src="./pics/logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
+        <span class="logo-name1">Biblio</span><span class="logo-name2">File</span>
+    <img>
+    </a>
+</nav>
+
+<h1>Add a book</h1>
+
+<form method="POST" action="/addbook" class="pt-3">
+    <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Title</label>
+        <div class="col-4">
+            <input class="form-control" type="text" name="title">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Author</label>
+        <div class="col-4">
+            <input class="form-control" type="text" name="author">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Start Date</label>
+        <div class="col-4">
+            <input class="form-control" type="date" id="datemin" min="2022-20-02" name="startDate">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">End Date</label>
+        <div class="col-4">
+            <input class="form-control" type="date" id="datemin" min="2022-20-02" name="endDate">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Rating</label>
+        <div class="col-4">
+            <input class="form-control" type="number" name="rating">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Genre(s)</label>
+        <div class="col-4">
+            <input class="form-control" type="text" name="genres" multiple>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Book cover: (select file)</label>
+        <div class="col-4">
+            <input class="form-control" type="file" id="files" name="files" multiple>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Review</label>
+        <div class="col-4">
+            <input class="form-control" type="text" name="review">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-4">
+            <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+    </div>
+</form>
