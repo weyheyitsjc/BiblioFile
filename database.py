@@ -85,6 +85,19 @@ class books:
             }
         else:
             return None
+
+    def getAllBooks(self):
+        data = self.c.execute('SELECT * FROM books ORDER BY endDate')
+        return [{
+            'title': d[0],
+            # 'author': d[1],
+            # 'startDate': d[2],
+            # 'endDate': d[3],
+            # 'rating': d[4],
+            # 'genres': d[5],
+            'cover': d[6],
+            # 'review': d[7]
+        } for d in data]
     
     def close(self):
         self.conn.close()

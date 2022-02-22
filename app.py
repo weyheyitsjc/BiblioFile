@@ -1,4 +1,4 @@
-from flask import Flask, render_template, g, request, redirect, session
+from flask import Flask, render_template, g, request, redirect, session, jsonify
 from database import DB, books
 import os
 
@@ -82,6 +82,15 @@ def addbook():
             bookDB(session['user']['name']).addBook(title, author, startDate, endDate, rating, stringGenres, cover, review)
         return redirect('/')
     return render_template('/addbook.html')
+
+@app.route('/api/mybooks')
+def api_mybooks():
+    if 'user' in session:
+        name = session['user']['name']
+        response = bookDB(name).getAllBooks()
+        return jsonify(response)
+    else:
+        return jsonify('Error: User not authenticated')
 
 @app.route('/logout')
 def logout():

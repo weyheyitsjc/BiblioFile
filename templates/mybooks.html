@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% set active = "Account" %}
+
+{% block content %}
+
+<div id="cards" class="container">
+
+</div>
+
+<script>
+    function buildCards(books) {
+        $('#cards').empty();
+        for (var i = 0; i < books.length; i++) {
+            let book = books[i];
+            let card = $('<div>').addClass('card')
+            if (book.image == None) {
+                // add card with just the title
+            } else {
+                card.append(
+                    $('<img>').addClass('card-img-top').attr('src', '/course/img/books/' + book.image));
+            }
+                // ).append(
+                //     $('<p>').addClass('card-body')
+                //         .append(
+                //             $('<h5>').addClass('card-title').text(goat.name)
+                //         ).append(
+                //             $('<p>').addClass('card-text').text(goat.age + ' years old')
+                //         ).append(
+                //             $('<a>').addClass('btn btn-primary').text('Unadopt')
+                //                 .click(function () {
+                //                     unadoptGoat(goat.uid);
+                //                 })
+                //         )
+                // );
+            if (i % booksPerColumn == 0)
+                $('#cards').append(
+                    $('<div>').addClass('card-deck')
+                );
+            $('#cards .card-deck').last().append(card);
+        }
+        while ($('#cards .card-deck:last .card').length < booksPerColumn)
+            $('#cards .card-deck').last().append($('<div>').addClass('card blank-card'));
+    }
+
+    function loadbooks() {
+        $.get("api/mybooks", function (data) {
+            buildCards(data);
+        });
+    }
+</script>
+
+{% endblock %}
