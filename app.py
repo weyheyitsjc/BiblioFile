@@ -60,7 +60,7 @@ def login():
             message = "Missing password, please try again"
         elif not email and typed_password:
             message = "Missing email, please try again"
-    return render_template('login.html', message=message)
+    return render_template('index.html', message=message)
 
 @app.route('/addbook', methods=['GET', 'POST'])
 def addbook():
