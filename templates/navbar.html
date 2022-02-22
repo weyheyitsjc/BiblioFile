@@ -44,9 +44,53 @@
           </li>
           {% else %}
             <li class="nav-item">
-              <a class="nav-link" href="/login">Log In</a>
+              <!-- <a class="nav-link" href="/login">Log In</a> -->
+              <a class="nav-link" data-target="#ModalLoginForm" data-toggle="modal" href="">Log In</a>
             </li>
           {% endif %}
         </ul>
     </div>
 </nav>
+
+<!-- Modal HTML Markup -->
+<div id="ModalLoginForm" class="modal fade">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+              <h1 class="modal-title">Welcome Back</h1>
+          </div>
+          <div class="modal-body">
+          <form role="form" method="POST" action="">
+              <input type="hidden" name="_token" value="">
+              <div class="form-group">
+                  <label class="control-label large">Email</label>
+                  <div>
+                      <input type="email" placeholder="yourname@email.com" class="form-control input-lg" name="email" value="">
+                  </div>
+              </div>
+              <div class="form-group">
+                  <label class="control-label large">Password</label>
+                  <div>
+                      <input type="password" class="form-control input-lg" name="password">
+                  </div>
+              </div>
+              <div class="form-group">
+                <div class="forgot-pass">
+                    <a class="btn btn-link" href="">Forgot Password?</a>
+                </div>
+              </div>
+              <div class="form-group">
+                  <div class="btn-sign-in-div">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block sign-in">Login</button>
+                  </div>
+              </div>
+              <div class="form-group">
+                <div>
+                  <p class="signup-modal">Not a member? <a class="btn btn-link" href="">Sign Up</a></p>
+                </div>
+            </div>
+          </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+</div>

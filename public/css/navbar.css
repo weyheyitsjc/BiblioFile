@@ -31,3 +31,32 @@
     width: 100%;
 }
 
+.btn-sign-in-div, .signup-modal, .modal-title {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    align-content: center !important;
+    text-align: center !important;
+    align-items: center !important;
+}
+
+.btn.sign-in {
+    color: black;
+    background-color: #D9C9BE;
+}
+
+.btn.btn-link {
+    color: black;
+    text-decoration: underline;
+    padding: 0 0 0 0 !important;
+}
+
+.forgot-pass {
+    text-align: right !important;
+    align-items: right !important;
+    align-content: right !important;
+    margin: 0 0 0 auto;
+}
+
+.control-label.large {
+    font-size: 1.5em;
+}
