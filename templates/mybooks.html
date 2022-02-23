@@ -3,43 +3,37 @@
 
 {% block content %}
 
-<div id="cards" class="container">
+<h1>My Books</h1>
 
+<div id="cards" class="mybookscontainer">
+    <!-- cards go here -->
 </div>
 
 <script>
+    const booksPerColumn = 3;
     function buildCards(books) {
         $('#cards').empty();
         for (var i = 0; i < books.length; i++) {
             let book = books[i];
-            let card = $('<div>').addClass('card')
-            if (book.image == None) {
-                // add card with just the title
+            let card = $('<div>')
+            if (book.cover == "") {
+                card.addClass('blankbook').append(
+                    $('<p>').append(
+                    $('<h5>').text(book.title)));
+                    // <div><p><h5>title</h5></p></div>
             } else {
                 card.append(
-                    $('<img>').addClass('card-img-top').attr('src', '/course/img/books/' + book.image));
+                    $('<img>').attr('src', '/course/img/books/' + book.cover))
+                    
             }
-                // ).append(
-                //     $('<p>').addClass('card-body')
-                //         .append(
-                //             $('<h5>').addClass('card-title').text(goat.name)
-                //         ).append(
-                //             $('<p>').addClass('card-text').text(goat.age + ' years old')
-                //         ).append(
-                //             $('<a>').addClass('btn btn-primary').text('Unadopt')
-                //                 .click(function () {
-                //                     unadoptGoat(goat.uid);
-                //                 })
-                //         )
-                // );
-            if (i % booksPerColumn == 0)
-                $('#cards').append(
-                    $('<div>').addClass('card-deck')
-                );
-            $('#cards .card-deck').last().append(card);
+            $('#cards').append(card);
         }
-        while ($('#cards .card-deck:last .card').length < booksPerColumn)
-            $('#cards .card-deck').last().append($('<div>').addClass('card blank-card'));
+            // if (i % booksPerColumn == 0)
+                $('#cards').append($('<div>'));
+            // $('#cards .card-deck').last().append(card);
+        // }
+        // while ($('#cards .card-deck:last .card').length < booksPerColumn)
+        //     $('#cards .card-deck').last().append($('<div>').addClass('blankbook'));
     }
 
     function loadbooks() {
@@ -47,6 +41,10 @@
             buildCards(data);
         });
     }
+
+    $(function () {
+        loadbooks();
+    });
 </script>
 
 {% endblock %}

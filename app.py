@@ -97,6 +97,13 @@ def api_mybooks():
     else:
         return jsonify('Error: User not authenticated')
 
+@app.route('/mybooks')
+def mybooks():
+    if 'user' in session:
+        return render_template('/mybooks.html')
+    else:
+        return jsonify('Error: User not authenticated')
+
 @app.route('/logout')
 def logout():
     session.pop('user', None)
