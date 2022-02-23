@@ -85,14 +85,14 @@ def addbook():
                 stringGenres += ", " + i
 
         if title and author and endDate and rating and genres:
-            get_db.addBook(title, author, startDate, endDate, rating, stringGenres, cover, review)
+            get_db().addBook(session['user']['username'], title, author, startDate, endDate, rating, stringGenres, cover, review)
         return redirect('/')
     return render_template('/addbook.html')
 
 @app.route('/api/mybooks')
 def api_mybooks():
     if 'user' in session:
-        response = get_db.getAllBooks()
+        response = get_db().getAllBooks(session['user']['username'])
         return jsonify(response)
     else:
         return jsonify('Error: User not authenticated')

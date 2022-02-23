@@ -34,7 +34,7 @@ class DB:
         self.conn.commit()
 
     def getUser(self, username):
-        self.c.execute('SELECT * FROM accounts WHERE username=?', [username])
+        self.c.execute('SELECT * FROM accounts WHERE username=?'.format(username), [username])
         data = self.c.fetchall()
         if data:
             d = data[0]
@@ -46,12 +46,12 @@ class DB:
         else:
             return None
 
-    def addBook(self, title, author, startDate, endDate, rating, genres, cover, review):
-        self.c.execute('INSERT INTO books VALUES (?, ?, ?, ?, ?, ?, ?, ?)', [title, author, startDate, endDate, rating, genres, cover, review])
+    def addBook(self, username, title, author, startDate, endDate, rating, genres, cover, review):
+        self.c.execute('INSERT INTO {}books VALUES (?, ?, ?, ?, ?, ?, ?, ?)'.format(username), [title, author, startDate, endDate, rating, genres, cover, review])
         self.conn.commit()
 
-    def getBook(self, title):
-        self.c.execute('SELECT * FROM books WHERE title=?', [title])
+    def getBook(self, title, username):
+        self.c.execute('SELECT * FROM {}books WHERE title=?'.format(username), [title])
         data = self.c.fetchall()
         if data:
             d = data[0]
@@ -68,8 +68,8 @@ class DB:
         else:
             return None
 
-    def getAllBooks(self):
-        data = self.c.execute('SELECT * FROM books ORDER BY endDate')
+    def getAllBooks(self, username):
+        data = self.c.execute('SELECT * FROM {}books ORDER BY endDate'.format(username))
         return [{
             'title': d[0],
             # 'author': d[1],
