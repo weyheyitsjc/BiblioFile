@@ -1,23 +1,29 @@
 {% extends 'base.html' %}
 {% set active = "Home" %}
 
+{% if message %}
+<div class="alert alert-danger">
+    {{ message }}
+</div>
+{% endif %}
+
 {% block content %}
 <div class="sign-up-container">
     <div class="sign-up-title">Sign Up for BiblioFile</div>
     <div class="sign-up-desc">Sign up to create your online reading journal to track and log your books.</div>
 
-    <form class="signup-form-container">
+    <form method="POST" action="/signup" class="signup-form-container">
         <div class="mb-3">
             <label class="form-label2" for="inputEmail">Name</label>
             <input type="name" name="name" class="form-control" id="inputName" placeholder="Name" required>
         </div>
         <div class="mb-3">
-            <label class="form-label2" for="inputEmail">Email</label>
-            <input type="email" name="email" class="form-control" id="inputEmail" placeholder="yourname@email.com" required>
+            <label class="form-label2" for="inputEmail">Username</label>
+            <input type="text" name="username" class="form-control" id="inputEmail" placeholder="username" required>
         </div>
         <div class="mb-3">
             <label class="form-label2"  name="password" for="inputPassword">Password</label>
-            <input type="password" class="form-control" id="inputPassword" required>
+            <input name="password" type="password" class="form-control" id="inputPassword" required>
         </div>
         <button type="submit" class="btn btn-primary">Sign Up</button>
     </form>
