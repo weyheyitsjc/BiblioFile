@@ -38,6 +38,30 @@
   margin-right: auto;
 }
 
+.blankbook {
+  outline: black solid 0.1rem;
+  width: 13%;
+  height: 24vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.blankbook p {
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.mybookscontainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  z-index: 10;
+  width: 60vw;
+  padding-top: 5px;
+}
+
 .container {
   max-width: none !important;
 }
