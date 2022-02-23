@@ -88,12 +88,90 @@
   right: 5%;
 }
 
+.mybooks-button:focus {
+  outline-style: none !important;
+}
+
+.mybooks-button:hover {
+  color: skyblue;
+  cursor: pointer;
+}
+
 .blankbook h5 {
   font-size: 2rem;
 }
 
 .container {
   max-width: none !important;
+}
+
+.quote {
+  background-color: #e9dfd7;
+}
+
+blockquote {
+  text-align: center;
+  color: black;
+  font-size: 3rem;
+}
+
+blockquote p {
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+blockquote p::before,
+blockquote p::after {
+  content: "“";
+  font-family: Georgia;
+  font-size: 8rem;
+  margin: -2rem 0 0 -8rem;
+  position: absolute;
+  opacity: 0.5;
+}
+
+blockquote p::after {
+  content: "”";
+  margin: 4rem -4rem 0 4rem;
+}
+
+blockquote cite {
+  font-size: 1.5rem;
+}
+
+
+/* zoom in */
+@media only screen and (max-width: 824px) {
+  blockquote {
+    text-align: center;
+    color: black;
+    font-size: 1.5rem;
+  }
+
+  blockquote p {
+    font-style: italic;
+    margin-bottom: 0;
+    outline-style: solid; 
+  }
+  
+  blockquote p::before,
+  blockquote p::after {
+    content: "“";
+    font-family: Georgia;
+    font-size: 3.5rem;
+    margin: -0.7rem 0 0 -1.7rem;
+    position: absolute;
+    opacity: 0.5;
+  }
+  
+  blockquote p::after {
+    content: "”";
+    margin: 2.3rem -4rem 0 0;
+  }
+  
+  blockquote cite {
+    font-size: 1.5rem;
+  }
 }
 
 /* 1024 px and less screen size */
