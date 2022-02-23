@@ -39,17 +39,20 @@
 }
 
 .blankbook {
+  display: flex;
   outline: black solid 0.1rem;
+  justify-content: center;
   width: 13%;
   height: 24vh;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .blankbook p {
+  position: relative;
+  top: 40%;
   text-align: center;
-  margin-top: auto;
-  margin-bottom: auto;
+  justify-content: center;
+  vertical-align: middle;
+  height: 24vh;       /* The same as your div height */
 }
 
 .mybookscontainer {
@@ -59,13 +62,39 @@
   position: relative;
   z-index: 10;
   width: 60vw;
-  padding-top: 5px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.container.content h1 {
+  text-align: center !important;
+}
+
+.mybooks-header {
+  text-align: center;
+  display: inline-block;
+  width: 99vw;
+}
+
+.mybooks-title {
+  display: inline;
+}
+
+.mybooks-button {
+  position: absolute;
+  display: inline;
+  border: none !important;
+  background: none !important;
+  right: 5%;
+}
+
+.blankbook h5 {
+  font-size: 2rem;
 }
 
 .container {
   max-width: none !important;
 }
-
 
 /* 1024 px and less screen size */
 @media only screen and (min-width: 1024px) and (max-width: 1440px) {
@@ -91,11 +120,19 @@
     height: 24vmin;
     margin-bottom: -1.5vh;
   }
+  
+  .blankbook h5 {
+    font-size: 0.7rem;
+  }
 }
 
 @media only screen and (max-width: 424px) {
   .book {
     height: 24vmin;
     margin-bottom: -2vh;
+  }
+
+  .blankbook h5 {
+    font-size: 0.7rem;
   }
 }
