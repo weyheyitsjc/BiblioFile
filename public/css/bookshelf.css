@@ -39,17 +39,20 @@
 }
 
 .blankbook {
+  display: flex;
   outline: black solid 0.1rem;
+  justify-content: center;
   width: 13%;
   height: 24vh;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .blankbook p {
+  position: relative;
+  top: 40%;
   text-align: center;
-  margin-top: auto;
-  margin-bottom: auto;
+  justify-content: center;
+  vertical-align: middle;
+  height: 24vh;       /* The same as your div height */
 }
 
 .mybookscontainer {
@@ -59,13 +62,117 @@
   position: relative;
   z-index: 10;
   width: 60vw;
-  padding-top: 5px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.container.content h1 {
+  text-align: center !important;
+}
+
+.mybooks-header {
+  text-align: center;
+  display: inline-block;
+  width: 99vw;
+}
+
+.mybooks-title {
+  display: inline;
+}
+
+.mybooks-button {
+  position: absolute;
+  display: inline;
+  border: none !important;
+  background: none !important;
+  right: 5%;
+}
+
+.mybooks-button:focus {
+  outline-style: none !important;
+}
+
+.mybooks-button:hover {
+  color: skyblue;
+  cursor: pointer;
+}
+
+.blankbook h5 {
+  font-size: 2rem;
 }
 
 .container {
   max-width: none !important;
 }
 
+.quote {
+  background-color: #e9dfd7;
+}
+
+blockquote {
+  text-align: center;
+  color: black;
+  font-size: 3rem;
+}
+
+blockquote p {
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+blockquote p::before,
+blockquote p::after {
+  content: "“";
+  font-family: Georgia;
+  font-size: 8rem;
+  margin: -2rem 0 0 -8rem;
+  position: absolute;
+  opacity: 0.5;
+}
+
+blockquote p::after {
+  content: "”";
+  margin: 4rem -4rem 0 4rem;
+}
+
+blockquote cite {
+  font-size: 1.5rem;
+}
+
+
+/* zoom in */
+@media only screen and (max-width: 824px) {
+  blockquote {
+    text-align: center;
+    color: black;
+    font-size: 1.5rem;
+  }
+
+  blockquote p {
+    font-style: italic;
+    margin-bottom: 0;
+    outline-style: solid; 
+  }
+  
+  blockquote p::before,
+  blockquote p::after {
+    content: "“";
+    font-family: Georgia;
+    font-size: 3.5rem;
+    margin: -0.7rem 0 0 -1.7rem;
+    position: absolute;
+    opacity: 0.5;
+  }
+  
+  blockquote p::after {
+    content: "”";
+    margin: 2.3rem -4rem 0 0;
+  }
+  
+  blockquote cite {
+    font-size: 1.5rem;
+  }
+}
 
 /* 1024 px and less screen size */
 @media only screen and (min-width: 1024px) and (max-width: 1440px) {
@@ -91,11 +198,19 @@
     height: 24vmin;
     margin-bottom: -1.5vh;
   }
+  
+  .blankbook h5 {
+    font-size: 0.7rem;
+  }
 }
 
 @media only screen and (max-width: 424px) {
   .book {
     height: 24vmin;
     margin-bottom: -2vh;
+  }
+
+  .blankbook h5 {
+    font-size: 0.7rem;
   }
 }
