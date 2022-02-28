@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: sqlite-web
+Version: 0.4.0
+Summary: Web-based SQLite database browser.
+Home-page: https://github.com/coleifer/sqlite-web
+Author: Charles Leifer
+Author-email: coleifer@gmail.com
+License: MIT
+Description: Web-based SQLite database browser.
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python

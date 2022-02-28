@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-custom navbar-static-top">
-    <a class="navbar-brand" href="javascript:;">
+    <a class="navbar-brand" href="/">
       <img src="/pics/logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
         <span class="logo-name1">Biblio</span><span class="logo-name2">File</span>
       <img>
@@ -19,11 +19,11 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        
-        {% if session['user'] %}
         <li class="nav-item active">
           <a class="nav-link" href="/">Home</a>
         </li>
+
+        {% if session['user'] %}
         <li class="nav-item">
           <a class="nav-link" href="/mybooks">My Books</a>
         </li>
@@ -44,13 +44,18 @@
           </li>
           {% else %}
             <li class="nav-item">
-              <!-- <a class="nav-link" href="/login">Log In</a> -->
               <a class="nav-link" data-target="#ModalLoginForm" data-toggle="modal" href="">Log In</a>
             </li>
           {% endif %}
         </ul>
     </div>
 </nav>
+
+{% if message %}
+<div class="alert alert-danger">
+    {{ message }}
+</div>
+{% endif %}
 
 <!-- Modal HTML Markup -->
 <div id="ModalLoginForm" class="modal fade">
