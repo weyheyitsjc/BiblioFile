@@ -1,22 +1,18 @@
 from flask import Flask, render_template, g, request, redirect, session, jsonify
 from database import DB
 import os
+from werkzeug.utils import secure_filename
 
 app = Flask(__name__, static_folder='public', static_url_path='')
 secret_key = os.urandom(32)
 app.config['SECRET_KEY'] = secret_key
+app.config['UPLOAD_FOLDER'] = './public/pics/userBooks'
 
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
         db = DB()
     return db
-
-# def bookDB(username):
-#     booksDB = getattr(g, '_database', None)
-#     if booksDB is None:
-#         booksDB = books(username)
-#     return booksDB
 
 @app.teardown_appcontext
 def close_connection(exception):
@@ -63,7 +59,9 @@ def login():
             message = "Missing password, please try again."
         elif not username and typed_password:
             message = "Missing username, please try again."
-    return render_template('index.html', message=message)
+        else:
+            message = "Missing username and password, please try again."
+    return render_template('index.html', message = message)
 
 @app.route('/addbook', methods=['GET', 'POST'])
 def addbook():
@@ -74,7 +72,7 @@ def addbook():
         endDate = request.form['endDate']
         rating = request.form.get('rating')
         genres = request.form.getlist('genres')
-        cover = request.form['cover']
+        cover = request.files.get('cover')
         review = request.form['review']
 
         stringGenres = ""
@@ -84,9 +82,17 @@ def addbook():
             else:
                 stringGenres += ", " + i
 
+        coverPath = ""
+        if cover:
+            image = request.files.get('cover')
+            filename = secure_filename(image.filename)
+            path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            coverPath = "/pics/userBooks/" + filename
+            image.save(path)
+
         if title and author and endDate and rating and genres:
-            get_db().addBook(session['user']['username'], title, author, startDate, endDate, rating, stringGenres, cover, review)
-        return redirect('/')
+            get_db().addBook(session['user']['username'], title, author, startDate, endDate, rating, stringGenres, coverPath, review)
+        return redirect('/mybooks')
     return render_template('/addbook.html')
 
 @app.route('/api/mybooks')
@@ -101,6 +107,15 @@ def api_mybooks():
 def mybooks():
     if 'user' in session:
         return render_template('/mybooks.html')
+    else:
+        return jsonify('Error: User not authenticated')
+
+@app.route('/displaybook', methods=['GET'])
+def displaybook():
+    if 'user' in session:
+        title = request.args.get('title')
+        response = get_db().getBook(title, session['user']['username'])
+        return render_template('/displaybook.html', response = response)
     else:
         return jsonify('Error: User not authenticated')
 

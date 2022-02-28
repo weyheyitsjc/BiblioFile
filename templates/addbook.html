@@ -1,14 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-custom">
-    <a class="navbar-brand" href="javascript:;">
-    <img src="./pics/logo.png" width="50" height="50" class="d-inline-block align-top" alt="">
-        <span class="logo-name1">Biblio</span><span class="logo-name2">File</span>
-    <img>
-    </a>
-</nav>
+{% extends 'base.html' %}
+{% set active = "Account" %}
+
+{% block content %}
 
 <h1>Add a book</h1>
 
-<form method="POST" action="/addbook" class="pt-3">
+<form method="POST" action="/addbook" class="pt-3" enctype="multipart/form-data">
     <div class="form-group row">
         <label for="example-text-input" class="col-2 col-form-label">Title</label>
         <div class="col-4">
@@ -24,13 +21,13 @@
     <div class="form-group row">
         <label for="example-text-input" class="col-2 col-form-label">Start Date</label>
         <div class="col-4">
-            <input class="form-control" type="date" id="datemin" name="startDate">
+            <input class="form-control" type="date" name="startDate">
         </div>
     </div>
     <div class="form-group row">
         <label for="example-text-input" class="col-2 col-form-label">End Date</label>
         <div class="col-4">
-            <input class="form-control" type="date" id="datemin" name="endDate">
+            <input class="form-control" type="date" name="endDate">
         </div>
     </div>
     <div class="form-group row">
@@ -59,7 +56,7 @@
     <div class="form-group row">
         <label for="example-text-input" class="col-2 col-form-label">Book cover: (select file)</label>
         <div class="col-4">
-            <input class="form-control" type="file" id="cover" name="cover" multiple>
+            <input class="form-control" type="file" id="cover" name="cover">
         </div>
     </div>
     <div class="form-group row">
@@ -75,3 +72,4 @@
         </div>
     </div>
 </form>
+{% endblock %}

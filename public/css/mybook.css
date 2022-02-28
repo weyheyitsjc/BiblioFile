@@ -1,0 +1,25 @@
+.mybook {
+    height: 65vh;
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.vertical {
+    padding-left: 20px;
+    padding-top: 20px;
+    border-left: 2px solid gray;
+    height: 85vh;
+}
+
+.title {
+    color: #A6868A;
+    text-align: left;
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.author {
+    font-style: italic;
+    font-size: 1.25em;
+}

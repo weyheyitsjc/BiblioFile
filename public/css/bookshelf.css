@@ -46,12 +46,19 @@
   height: 24vh;
 }
 
+.mybooks {
+  display: flex;
+  width: 100%;
+  height: 24vh;
+}
+
 .blankbook p {
   position: relative;
   top: 40%;
   text-align: center;
   justify-content: center;
   vertical-align: middle;
+  width: 100%;
   height: 24vh;       /* The same as your div height */
 }
 
