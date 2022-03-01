@@ -158,7 +158,6 @@ blockquote cite {
   blockquote p {
     font-style: italic;
     margin-bottom: 0;
-    outline-style: solid; 
   }
   
   blockquote p::before,
