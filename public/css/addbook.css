@@ -1,0 +1,126 @@
+hr {
+    margin-top: 2.5rem !important;
+    margin-bottom: 1.5rem !important;
+    border: 0 !important;
+    border-top: 1px solid black !important;
+}
+
+.manually {
+    font-style: italic;
+}
+
+.back-button {
+    text-align: left;
+}
+
+.ml-auto.link-primary.justify-content-start {
+    text-align: left;
+    width: 100%;
+    padding-left: 7px;
+    text-decoration: none;
+    color: black;
+}
+
+.addbook-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.mx-auto.text-center.form.p6 {
+    width: 50% !important;
+}
+
+.form-group.justify-content-between.row {
+    min-width: 20% !important;
+    max-width: 100% !important;
+    margin-left: 0px;
+    margin-right: 0px;
+    flex-wrap: wrap !important;
+}
+
+.form-group.justify-content-between.row > .justify-content-start {
+    text-align: left;
+    padding-left: 0px !important;
+    margin-left: 0px;
+    margin-right: 0px;
+    min-width: 50%;
+    max-width: 100%;
+    padding-right: 15px;
+}
+
+.addbook-inputbox {
+    flex: 0 0 100%;
+}
+
+.col-2.row {
+    flex: 0 0 0 !important;
+    
+}
+
+.col-2.col-form-label {
+    padding-left: 0px;
+}
+
+.col-6.col-form-label {
+    padding-left: 0px;
+}
+
+.form-group.justify-content-between.dates.row {
+    width: 50%;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.form-group.justify-content-between.dates.row > .justify-content-start.row.col-sm {
+    width:100%;
+    display: block;
+}
+
+.rating-column {
+    text-align: left;
+    width: 100%;
+}
+
+#rating {
+    width: 100%;
+} 
+
+.custom-select, .selectpicker {
+    height: 2.5rem !important;
+}
+
+.bootstrap-select .btn {
+    background-color: white !important;
+    border: 1px solid #ced4da;
+}
+
+.bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    width: 100% !important;
+}
+
+.file-input {
+    width: 100%;
+}
+
+.addbook-file-inputbox {
+    width: 100%;
+}
+
+.add-file-container {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.custom-file-label {
+    background-color: #e9dfd7 !important;
+    text-align: center !important;
+}
+
+.col-4 {
+    display: block;
+}
+
+.review-form {
+    width: 60%;
+}

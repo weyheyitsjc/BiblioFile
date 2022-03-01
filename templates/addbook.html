@@ -3,73 +3,115 @@
 
 {% block content %}
 
-<h1>Add a book</h1>
+<div class="justify-content-center addbook-container">
+    <div class="mx-auto text-center form p6">
 
-<form method="POST" action="/addbook" class="pt-3" enctype="multipart/form-data">
-    <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Title</label>
-        <div class="col-4">
-            <input class="form-control" type="text" name="title">
+    <div class="back-button">
+        <i class="fa-solid fa-angle-left"></i><a href="#" class="ml-auto text-left link-primary justify-content-start">My Books</a>
+    </div>
+    
+    <h1>Add a book</h1>
+    <h3>By Search</h3>
+
+    <div class="input-group">
+        <input type="text" class="form-control" placeholder="Title / Author">  
+        <div class="input-group-append">
+          <span class="input-group-text">
+            <button class="btn" type="button"><i class="fa fa-search fa-lg"></i></button></span>
         </div>
     </div>
-    <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Author</label>
-        <div class="col-4">
-            <input class="form-control" type="text" name="author">
+
+    <hr/>
+
+    <h3 class="manually">Manually</h3>
+
+    <form class="justify-content-center" method="POST" action="/addbook" class="pt-3" enctype="multipart/form-data">
+        <div class="form-group justify-content-between row">
+            <div class="justify-content-start row">
+                <label for="example-text-input" class="col-2 col-form-label">Title*</label>
+                <div class="addbook-inputbox">
+                    <input class="form-control" type="text" name="title" required>
+                </div>
+            </div>
+            <div class="justify-content-start row">
+                <label for="example-text-input" class="col-2 col-form-label">Author*</label>
+                <div class="addbook-inputbox">
+                    <input class="form-control" type="text" name="author" required>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Start Date</label>
-        <div class="col-4">
-            <input class="form-control" type="date" name="startDate">
+
+        <div class="form-group justify-content-between row">
+            <div class="form-group justify-content-between dates row">
+                <div class="justify-content-start row col-sm">
+                    <label for="example-text-input" class="col-form-label">Start Date</label>
+                    <div class="addbook-date-inputbox">
+                        <input class="form-control" type="date" name="startDate" required>
+                    </div>
+                </div>
+                <div class="justify-content-start row col-sm">
+                    <label for="example-text-input" class="col-form-label">End Date*</label>
+                    <div class="addbook-date-inputbox">
+                        <input class="form-control" type="date" name="endDate" required>
+                    </div>
+                </div>
+            </div>
+            <div class="justify-content-start row">
+                <div class="rating-column">
+                    <label for="example-text-input" class="col-2 col-form-label">Rating*</label>         
+                    <select class="custom-select mb-3">
+                        <option selected>-</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">End Date</label>
-        <div class="col-4">
-            <input class="form-control" type="date" name="endDate">
+
+        <div class="d-flex flex-wrap form-group justify-content-between row">
+            <div class="d-flex flex-wrap justify-content-start row">
+                <div class="rating-column">
+                    <label for="example-text-input" class="col-2 col-form-label">Genre(s)*</label>
+                </div>
+                <select multiple class="selectpicker mb-3" id ="genres" name="genres">
+                    <option value="">-</option>
+                    <option value="fantasy">fantasy</option>
+                    <option value="fiction">fiction</option>
+                    <option value="romance">romance</option>
+                    <option value="mystery">mystery</option>
+                </select>
+            </div>
+            <div class="d-flex flex-wrap justify-content-start row">
+                <label for="example-text-input" class="col-6 col-form-label">Book Cover</label>
+                <div class="add-file-container">
+                    <div class="custom-file" id="customFile">
+                        <input type="file" class="custom-file-input" id="exampleInputFile" aria-describedby="fileHelp">
+                        <label class="custom-file-label" for="exampleInputFile">
+                            add image (jpeg, png)
+                        </label>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Rating</label>
-        <div class="col-4">
-            <select id ="rating" name="rating">
-                <option type="number" value="5">5</option>
-                <option type="number" value="4">4</option>
-                <option type="number" value="3">3</option>
-                <option type="number" value="2">2</option>
-                <option type="number" value="1">1</option>
-            </select>
+
+        <div class="form-group justify-content-center row">
+            <div class="justify-content-start row review-form">
+                <label for="exampleFormControlTextarea1">Review</label>
+                <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10"></textarea>
+              </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Genre(s)</label>
-        <div class="col-4">
-            <select multiple id ="genres" name="genres">
-                <option value="fantasy">fantasy</option>
-                <option value="fiction">fiction</option>
-                <option value="romance">romance</option>
-                <option value="mystery">mystery</option>
-            </select>
+
+
+        <div class="form-group justify-content-center row">
+            <div class="col-8">
+                <button type="submit" class="btn btn-primary addbooks-button btn-lg">Add</button>
+            </div>
         </div>
-    </div>
-    <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Book cover: (select file)</label>
-        <div class="col-4">
-            <input class="form-control" type="file" id="cover" name="cover">
-        </div>
-    </div>
-    <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Review</label>
-        <div class="col-4">
-            <textarea name="review" rows="10" cols="30"></textarea>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-2"></div>
-        <div class="col-4">
-            <button type="submit" class="btn btn-primary">Add</button>
-        </div>
-    </div>
-</form>
+
+    </form>
+</div>
+</div>
 {% endblock %}
