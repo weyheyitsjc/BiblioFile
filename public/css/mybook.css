@@ -23,3 +23,78 @@
     font-style: italic;
     font-size: 1.25em;
 }
+
+.dateReadStart, .dateReadEnd, .mybookrating, .mybookgenres {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dateReadStart-text > p, .dateReadEnd-text > p, .mybookrating-text > p, .mybookgenres-text > p {
+    font-weight: bold;
+    margin-right: 0.5rem;
+    font-style: normal;
+    display: inline-block;
+    margin-bottom: 0px;
+}
+
+.dateReadStart-text, .dateReadEnd-text {
+    font-style: italic;
+    display: inline-block;
+}
+
+.mybookrating-text, .mybookgenres-text {
+    display: inline-block;
+}
+
+.mybookreview-text > p {
+    font-weight: bold;
+    margin-right: 0.5rem;
+    font-style: normal;
+    margin-bottom: 0.3rem;
+    margin-top: 2rem;
+}
+
+.review-box {
+    border: 1px solid;
+    min-height: 20vh;
+    height: 100%;
+}
+
+.innerreview-text {
+    word-wrap:break-word;
+}
+
+.col-3.my-auto > img {
+    height: 70vh;
+}
+
+.mybooksdelete {
+    position: absolute;
+    display: inline;
+    border: none !important;
+    background: none !important;
+    right: 5%;
+    border-radius: 100% !important;
+}
+
+.mybooksedit {
+    position: absolute;
+    display: inline;
+    border: none !important;
+    background: none !important;
+    right: 10%;
+    border-radius: 100% !important;
+}
+
+.mybooksdeletemodal.modal-footer {
+    justify-content: space-around !important;
+    border-top: none;
+}
+
+.mybooksdeletemodal.modal-header {
+    border-bottom: none;
+}
+
+.mybooksdeletemodal.btn {
+    width: 8rem;
+}
