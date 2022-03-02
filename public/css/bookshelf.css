@@ -24,18 +24,17 @@
   position: relative;
   z-index: 10;
   margin-bottom: -4vh; /* This is what actually puts the stuff ON the shelf instead of hovering above it */
-  width: 60vw;
+  width: 55vw;
   padding-top: 5px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .book { 
-  width: 13%;
-  height: 24vh;
-  padding: 5px;
-  margin-left: auto;
-  margin-right: auto;
+  height: 23vh;
+  margin-right: 1%;
+  margin-left: 1%;
+  margin-bottom: 0.5%;
 }
 
 .container {
@@ -46,32 +45,25 @@
 /* 1024 px and less screen size */
 @media only screen and (min-width: 1024px) and (max-width: 1440px) {
   .book {
-    width: 15%;
-    margin-bottom: -0.2vh;
-    height: 24vmin; 
+    height: 15vh;
   }
 }
 
 /* 1024 px and larger screen size */
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
   .book {
-    width: 15%;
-    margin-bottom: -.5vh;
-    height: 24vmin;
+    height: 10vh;
   }
 }
 
 @media only screen and (min-width: 425px) and (max-width: 767px) {
   .book {
-    width: 15%;
-    height: 24vmin;
-    margin-bottom: -1.5vh;
+    height: 5vh;
   }
 }
 
 @media only screen and (max-width: 424px) {
   .book {
-    height: 24vmin;
-    margin-bottom: -2vh;
+    height: 1vh;
   }
 }
