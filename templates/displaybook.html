@@ -7,17 +7,12 @@
 <div class="modal fade" id="displaybookexampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="mybooksdeletemodal modal-content">
-      <div class="mybooksdeletemodal modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
       <div class="modal-body">
         Are you sure you want to delete this book from your journal?
       </div>
       <div class="mybooksdeletemodal modal-footer">
-        <button type="button" class="mybooksdeletemodal btn btn-secondary" data-dismiss="modal">Yes</button>
-        <button type="button" class="mybooksdeletemodal btn btn-primary">No</button>
+        <a type="button" href="/deletebook?title={{response['title']}}" class="mybooksdeletemodal btn btn-primary">Yes</a>
+        <button type="button" class="close mybooksdeletemodal btn btn-secondary" data-dismiss="modal">No</button>
       </div>
     </div>
   </div>
@@ -25,8 +20,8 @@
 
 <div class="container">
     <div class="row">
-      <div class="col-3 my-auto">
-        <img src="{{response['cover']}}" class="mybook col-12">
+      <div class="col-3 my-auto image">
+        <!-- <img src="{{response['cover']}}" class="mybook col-12"> -->
       </div>
       <div class="col-8 vertical">
         <p class="title">
@@ -54,7 +49,7 @@
         </div>
         <div class="mybookrating">
           <div class="mybookrating-text">
-            <p>Rating:</p> {{response['rating']}}
+            <p>Rating:</p> {{response['rating']}} / 5 Stars
           </div>
         </div>
         <div class="mybookgenres">
@@ -76,6 +71,24 @@
       </div>
     </div>
   </div>
+
+<script>
+    $(document).ready(function () {
+        if ({{ response }}  == "") {
+            console.log("no image");
+            let img = $('<div>');
+            card.addClass('blankbook').append(
+                $('<p>').append(
+                $('<h5>').text(response.title)));
+                $('#image').append(img)
+        } else {
+            console.log("image");
+            let img = $('<img>');
+            card.addClass('mybook col-12').attr('src', response.title);
+            $('#image').append(img)
+        }
+    });
+</script>
 
 {% endif %}
 {% endblock %}

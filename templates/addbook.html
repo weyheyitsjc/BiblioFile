@@ -7,11 +7,11 @@
     <div class="mx-auto text-center form p6">
 
     <div class="back-button">
-        <i class="fa-solid fa-angle-left"></i><a href="#" class="ml-auto text-left link-primary justify-content-start">My Books</a>
+        <i class="fa-solid fa-angle-left"></i><a href="/mybooks" class="ml-auto text-left link-primary justify-content-start">My Books</a>
     </div>
     
     <h1>Add a book</h1>
-    <h3>By Search</h3>
+    <!-- <h3>By Search</h3>
 
     <div class="input-group">
         <input type="text" class="form-control" placeholder="Title / Author">  
@@ -21,9 +21,9 @@
         </div>
     </div>
 
-    <hr/>
+    <hr/> -->
 
-    <h3 class="manually">Manually</h3>
+    <!-- <h3 class="manually">Manually</h3> -->
 
     <form class="justify-content-center" method="POST" action="/addbook" class="pt-3" enctype="multipart/form-data">
         <div class="form-group justify-content-between row">
@@ -78,10 +78,16 @@
                 </div>
                 <select multiple class="selectpicker mb-3" id ="genres" name="genres">
                     <option value="">-</option>
+                    <option value="action">action</option>
+                    <option value="contemporary">contemporary</option>
                     <option value="fantasy">fantasy</option>
                     <option value="fiction">fiction</option>
-                    <option value="romance">romance</option>
+                    <option value="historical fiction">historical fiction</option>
+                    <option value="horror">horror</option>
                     <option value="mystery">mystery</option>
+                    <option value="romance">romance</option>
+                    <option value="sci-fi">sci-fi</option>
+                    <option value="thriller">thriller</option>
                 </select>
             </div>
             <div class="d-flex flex-wrap justify-content-start row">
@@ -90,7 +96,7 @@
                     <div class="custom-file" id="customFile">
                         <input type="file" class="custom-file-input" id="exampleInputFile" aria-describedby="fileHelp">
                         <label class="custom-file-label" for="exampleInputFile">
-                            add image (jpeg, png)
+                            add image
                         </label>
                     </div>
                 </div>

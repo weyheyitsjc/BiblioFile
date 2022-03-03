@@ -76,9 +76,9 @@ class DB:
         } for d in data]
 
     
-    def deleteBook(self, name):
-        self.c.execute('DELETE FROM books WHERE name=?', [name])
-
+    def deleteBook(self, title, username):
+        self.c.execute('DELETE FROM {}books WHERE title=?'.format(username), [title])
+        self.conn.commit()
 
     def close(self):
         self.conn.close()

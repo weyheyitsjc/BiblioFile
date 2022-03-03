@@ -119,6 +119,15 @@ def displaybook():
     else:
         return jsonify('Error: User not authenticated')
 
+@app.route('/deletebook', methods=['GET'])
+def deletebook():
+    if 'user' in session:
+        title = request.args.get('title')
+        get_db().deleteBook(title, session['user']['username'])
+        return render_template('/mybooks.html')
+    else:
+        return jsonify('Error: User not authenticated')
+
 @app.route('/logout')
 def logout():
     session.pop('user', None)
