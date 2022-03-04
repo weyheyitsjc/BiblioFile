@@ -90,6 +90,8 @@ def addbook():
             path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             coverPath = "/pics/userBooks/" + filename
             image.save(path)
+        else:
+            coverPath = "/pics/blankbook.jpg"
 
         if title and author and endDate and rating and genres:
             get_db().addBook(session['user']['username'], title, author, startDate, endDate, rating, stringGenres, coverPath, review)
@@ -179,11 +181,13 @@ def deletebook():
         return jsonify('Error: User not authenticated')
 
 
-@app.route('/gettrendingbook', methods=['GET'])
-def gettrendingbook():
-    title = request.args.get('title')
-    jsonFile = json.load()
-    return render_template('/mybooks.html')
+@app.route('/displaytrendingbook', methods=['GET'])
+def displaytrendingbook():
+    id = int(request.args.get('id'))
+    jsonFile = open("./books.json")
+    file = json.load(jsonFile)
+    data = file['books'][id]
+    return render_template('/displaytrendingbook.html', response=data)
 
 @app.route('/logout')
 def logout():
