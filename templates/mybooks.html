@@ -4,7 +4,7 @@
 {% block content %}
 <div class="mybooks-header">
     <h1 class="mybooks-title">My Books</h1>
-    <button class="mybooks-button button" type="mybooks btn btn-primary" href="/addbook"><i class="fa-solid fa-plus fa-3x"></i></a>
+    <a class="mybooks-button button" type="mybooks btn btn-primary" href="/addbook"><i class="fa-solid fa-plus fa-3x"></i></a>
 </div>
 
 <div id="cards" class="mybookscontainer">
@@ -18,7 +18,7 @@
         for (var i = 0; i < books.length; i++) {
             let book = books[i];
             let card = $('<div>')
-            if (book.cover == "") {
+            if (book.cover == "/pics/blankbook.jpg") {
                 card.addClass('blankbook').append(
                     $('<p>').append(
                     $('<h5>').text(book.title)));
