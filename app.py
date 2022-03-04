@@ -2,6 +2,7 @@ from flask import Flask, render_template, g, request, redirect, session, jsonify
 from database import DB
 import os
 from werkzeug.utils import secure_filename
+import json
 
 app = Flask(__name__, static_folder='public', static_url_path='')
 secret_key = os.urandom(32)
@@ -115,7 +116,56 @@ def displaybook():
     if 'user' in session:
         title = request.args.get('title')
         response = get_db().getBook(title, session['user']['username'])
-        return render_template('/displaybook.html', response = response)
+        return render_template('/displaybook.html', response=response)
+    else:
+        return jsonify('Error: User not authenticated')
+
+@app.route('/editbook', methods=['GET', 'POST'])
+def editbook():
+    if 'user' in session and request.method=="GET":
+        title = request.args.get('title')
+        response = get_db().getBook(title, session['user']['username'])
+        return render_template('/editbook.html', response=response)
+    elif 'user' in session and request.method=="POST":
+        id = request.form['id']
+        title = request.form['title']
+        get_db().updateTitle(id, title, session['user']['username'])
+
+        author = request.form['author']
+        get_db().updateAuthor(id, author, session['user']['username'])
+
+        startDate = request.form['startDate']
+        get_db().updateStartDate(id, startDate, session['user']['username'])
+
+        endDate = request.form['endDate']
+        get_db().updateEndDate(id, endDate, session['user']['username'])
+
+        rating = request.form.get('rating')
+        if (rating != ""):
+            get_db().updateRating(id, rating, session['user']['username'])
+
+        genres = request.form.getlist('genres')
+        if (genres != ""):
+            stringGenres = ""
+            for i in genres:
+                if i == genres[0]: 
+                    stringGenres += i
+                else:
+                    stringGenres += ", " + i
+            get_db().updateGenres(id, stringGenres, session['user']['username'])
+
+        cover = request.files.get('cover')
+        coverPath = ""
+        if cover:
+            image = request.files.get('cover')
+            filename = secure_filename(image.filename)
+            path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            coverPath = "/pics/userBooks/" + filename
+            image.save(path)
+            get_db().updateCover(id, coverPath, session['user']['username'])
+
+        review = request.form['review']
+        get_db().updateReview(id, review, session['user']['username'])
     else:
         return jsonify('Error: User not authenticated')
 
@@ -127,6 +177,13 @@ def deletebook():
         return render_template('/mybooks.html')
     else:
         return jsonify('Error: User not authenticated')
+
+
+@app.route('/gettrendingbook', methods=['GET'])
+def gettrendingbook():
+    title = request.args.get('title')
+    jsonFile = json.load()
+    return render_template('/mybooks.html')
 
 @app.route('/logout')
 def logout():
