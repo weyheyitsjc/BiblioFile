@@ -90,6 +90,8 @@ def addbook():
             path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
             coverPath = "/pics/userBooks/" + filename
             image.save(path)
+        else:
+            coverPath = "/pics/blankbook.jpg"
 
         if title and author and endDate and rating and genres:
             get_db().addBook(session['user']['username'], title, author, startDate, endDate, rating, stringGenres, coverPath, review)
