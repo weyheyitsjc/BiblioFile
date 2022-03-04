@@ -7,17 +7,12 @@
 <div class="modal fade" id="displaybookexampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="mybooksdeletemodal modal-content">
-      <div class="mybooksdeletemodal modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
       <div class="modal-body">
         Are you sure you want to delete this book from your journal?
       </div>
       <div class="mybooksdeletemodal modal-footer">
-        <button type="button" class="mybooksdeletemodal btn btn-secondary" data-dismiss="modal">Yes</button>
-        <button type="button" class="mybooksdeletemodal btn btn-primary">No</button>
+        <a type="button" href="/deletebook?title={{response['title']}}" class="mybooksdeletemodal btn btn-primary">Yes</a>
+        <button type="button" class="close mybooksdeletemodal btn btn-secondary" data-dismiss="modal">No</button>
       </div>
     </div>
   </div>
@@ -25,15 +20,15 @@
 
 <div class="container">
     <div class="row">
-      <div class="col-3 my-auto">
+      <div class="col-3 my-auto image">
         <img src="{{response['cover']}}" class="mybook col-12">
       </div>
       <div class="col-8 vertical">
         <p class="title">
           {{response['title']}} 
-          <button type="button" class="mybooksedit btn btn-primary" data-toggle="modal" data-target="">
+          <a type="button" href="/editbook?title={{response['title']}}" class="mybooksedit btn btn-primary">
             <i class="fa fa-pencil fa-2x"></i>
-          </button>
+          </a>
           <button type="button" class="mybooksdelete btn btn-primary" data-toggle="modal" data-target="#displaybookexampleModal">
             <i class="fa fa-trash-can fa-2x"></i>
           </button>
@@ -54,7 +49,7 @@
         </div>
         <div class="mybookrating">
           <div class="mybookrating-text">
-            <p>Rating:</p> {{response['rating']}}
+            <p>Rating:</p> {{response['rating']}} / 5 Stars
           </div>
         </div>
         <div class="mybookgenres">

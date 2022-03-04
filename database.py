@@ -51,19 +51,20 @@ class DB:
         self.conn.commit()
 
     def getBook(self, title, username):
-        self.c.execute('SELECT * FROM {}books WHERE title=?'.format(username), [title])
+        self.c.execute('SELECT rowid, * FROM {}books WHERE title=?'.format(username), [title])
         data = self.c.fetchall()
         if data:
             d = data[0]
             return {
-                'title': d[0],
-                'author': d[1],
-                'startDate': d[2],
-                'endDate': d[3],
-                'rating': d[4],
-                'genres': d[5],
-                'cover': d[6],
-                'review': d[7]
+                'id':d[0],
+                'title': d[1],
+                'author': d[2],
+                'startDate': d[3],
+                'endDate': d[4],
+                'rating': d[5],
+                'genres': d[6],
+                'cover': d[7],
+                'review': d[8]
             }
         else:
             return None
@@ -75,10 +76,41 @@ class DB:
             'cover': d[6],
         } for d in data]
 
-    
-    def deleteBook(self, name):
-        self.c.execute('DELETE FROM books WHERE name=?', [name])
+    def deleteBook(self, title, username):
+        self.c.execute('DELETE FROM {}books WHERE title=?'.format(username), [title])
+        self.conn.commit()
 
+    def updateTitle(self, id, title, username):
+        self.c.execute('UPDATE {}books SET title=? WHERE id=?'.format(username), [title, id])
+        self.conn.commit()
+
+    def updateAuthor(self, id, author, username):
+        self.c.execute('UPDATE {}books SET author=? WHERE id=?'.format(username), [author, id])
+        self.conn.commit()
+
+    def updateStartDate(self, id, startDate, username):
+        self.c.execute('UPDATE {}books SET startDate=? WHERE id=?'.format(username), [startDate, id])
+        self.conn.commit()
+
+    def updateEndDate(self, id, endDate, username):
+        self.c.execute('UPDATE {}books SET endDate=? WHERE id=?'.format(username), [endDate, id])
+        self.conn.commit()
+
+    def updateRating(self, id, rating, username):
+        self.c.execute('UPDATE {}books SET rating=? WHERE id=?'.format(username), [rating, id])
+        self.conn.commit()
+
+    def updateGenres(self, id, genres, username):
+        self.c.execute('UPDATE {}books SET genres=? WHERE id=?'.format(username), [genres, id])
+        self.conn.commit()
+
+    def updateCover(self, id, cover, username):
+        self.c.execute('UPDATE {}books SET cover=? WHERE id=?'.format(username), [cover, id])
+        self.conn.commit()
+
+    def updateReview(self, id, review, username):
+        self.c.execute('UPDATE {}books SET review=? WHERE id=?'.format(username), [review, id])
+        self.conn.commit()
 
     def close(self):
         self.conn.close()

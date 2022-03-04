@@ -1,42 +1,27 @@
 {% extends 'base.html' %}
-{% set active = "Account" %}
 
 {% block content %}
-
+{% if response %}
 <div class="justify-content-center addbook-container">
     <div class="mx-auto text-center form p6">
 
     <div class="back-button">
-        <i class="fa-solid fa-angle-left"></i><a href="/mybooks" class="ml-auto text-left link-primary justify-content-start">My Books</a>
+        <i class="fa-solid fa-angle-left"></i><a href="/displaybook?title={{response['title']}}" class="ml-auto text-left link-primary justify-content-start"> {{response['title']}}</a>
     </div>
     
-    <h1>Add a book</h1>
-    <!-- <h3>By Search</h3>
-
-    <div class="input-group">
-        <input type="text" class="form-control" placeholder="Title / Author">  
-        <div class="input-group-append">
-          <span class="input-group-text">
-            <button class="btn" type="button"><i class="fa fa-search fa-lg"></i></button></span>
-        </div>
-    </div>
-
-    <hr/> -->
-
-    <!-- <h3 class="manually">Manually</h3> -->
-
-    <form class="justify-content-center" method="POST" action="/addbook" class="pt-3" enctype="multipart/form-data">
+    <h1>Edit {{response['title']}}</h1>
+    <form class="justify-content-center" method="POST" action="/editbook" class="pt-3" enctype="multipart/form-data">
         <div class="form-group justify-content-between row">
             <div class="justify-content-start row">
                 <label for="example-text-input" class="col-2 col-form-label">Title*</label>
                 <div class="addbook-inputbox">
-                    <input class="form-control" type="text" name="title" required>
+                    <input class="form-control" type="text" name="title" value="{{response['title']}}" required>
                 </div>
             </div>
             <div class="justify-content-start row">
                 <label for="example-text-input" class="col-2 col-form-label">Author*</label>
                 <div class="addbook-inputbox">
-                    <input class="form-control" type="text" name="author" required>
+                    <input class="form-control" type="text" name="author" value="{{response['author']}}"required>
                 </div>
             </div>
         </div>
@@ -46,19 +31,20 @@
                 <div class="justify-content-start row col-sm">
                     <label for="example-text-input" class="col-form-label">Start Date*</label>
                     <div class="addbook-date-inputbox">
-                        <input class="form-control" type="date" name="startDate" required>
+                        <input class="form-control" type="date" name="startDate" value="{{response['startDate']}}" required>
                     </div>
                 </div>
                 <div class="justify-content-start row col-sm">
                     <label for="example-text-input" class="col-form-label">End Date*</label>
                     <div class="addbook-date-inputbox">
-                        <input class="form-control" type="date" name="endDate" required>
+                        <input class="form-control" type="date" name="endDate" value="{{response['endDate']}}" required>
                     </div>
                 </div>
             </div>
             <div class="justify-content-start row">
                 <div class="rating-column">
-                    <label for="example-text-input" class="col-2 col-form-label">Rating*</label>         
+                    <label for="example-text-input" class="col-2 col-form-label">New Rating* (choose a new rating to change)</label> 
+                    <p>Current Rating: {{response['rating']}}</p>        
                     <select class="custom-select mb-3">
                         <option selected>-</option>
                         <option value="1">1</option>
@@ -74,7 +60,8 @@
         <div class="d-flex flex-wrap form-group justify-content-between row">
             <div class="d-flex flex-wrap justify-content-start row">
                 <div class="rating-column">
-                    <label for="example-text-input" class="col-2 col-form-label">Genre(s)*</label>
+                    <label for="example-text-input" class="col-2 col-form-label">New Genre(s)* (choose new genre(s))</label>
+                    <p>Current Genre(s): {{response['genres']}}</p>   
                 </div>
                 <select multiple class="selectpicker mb-3" id ="genres" name="genres">
                     <option value="">-</option>
@@ -91,7 +78,9 @@
                 </select>
             </div>
             <div class="d-flex flex-wrap justify-content-start row">
-                <label for="example-text-input" class="col-6 col-form-label">Book Cover</label>
+                <label for="example-text-input" class="col-6 col-form-label">New Book Cover</label>
+                <p>Current Cover:</p>
+                <img src="{{response['cover']}}" class="book">
                 <div class="add-file-container">
                     <div class="custom-file" id="customFile">
                         <input type="file" class="custom-file-input" id="exampleInputFile" aria-describedby="fileHelp">
@@ -106,18 +95,22 @@
         <div class="form-group justify-content-center row">
             <div class="justify-content-start row review-form">
                 <label for="exampleFormControlTextarea1">Review</label>
-                <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10"></textarea>
-              </div>
+                <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="10" value="{{response['review']}}"></textarea>
+            </div>
         </div>
 
+        <input type="hidden" name="id" value="{{response['id']}}">
 
         <div class="form-group justify-content-center row">
             <div class="col-8">
-                <button type="submit" class="btn btn-primary addbooks-button btn-lg">Add</button>
+                <button type="submit" class="btn btn-primary addbooks-button btn-lg">Save</button>
             </div>
         </div>
 
     </form>
 </div>
-</div>
+
+{% endif %}
+
 {% endblock %}
+
