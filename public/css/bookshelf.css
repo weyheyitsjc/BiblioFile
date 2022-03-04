@@ -99,16 +99,20 @@
   position: absolute;
   display: inline;
   border: none !important;
-  background: none !important;
-  right: 5%;
+  border-radius: 90%;
+  background: #d8c3b0 !important;
+  right: 15%;
 }
 
 .mybooks-button:focus {
   outline-style: none !important;
 }
 
+.mybooks-button:active {
+  background: #e9dfd7 !important;
+}
+
 .mybooks-button:hover {
-  color: skyblue;
   cursor: pointer;
 }
 
