@@ -98,3 +98,13 @@
 .mybooksdeletemodal.btn {
     width: 8rem;
 }
+
+.fa-plus {
+    padding: 0.4rem;
+    width: 100%;
+    color: black;
+}
+
+a.mybooks-button.button {
+    width: max-content;
+}
