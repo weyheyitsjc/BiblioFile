@@ -49,6 +49,29 @@ hr {
     padding-right: 15px;
 }
 
+.d-flex.flex-wrap.justify-content-start.row.two {
+    width: 50%;
+}
+
+.justify-content-start.dates.row.two {
+    width: 50%;
+}
+
+.justify-content-start.row.third {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.justify-content-between.dates.
+
+.rating-padding {
+    padding-right: 15px;
+}
+
+.d-flex.flex-wrap.justify-content-start.row {
+    width: 100%;
+}
+
 .addbook-inputbox {
     flex: 0 0 100%;
 }
@@ -64,22 +87,30 @@ hr {
 
 .col-6.col-form-label {
     padding-left: 0px;
+    height: fit-content !important;
 }
 
-.form-group.justify-content-between.dates.row {
-    width: 50%;
-    margin-left: 0px;
-    margin-right: 0px;
-}
-
-.form-group.justify-content-between.dates.row > .justify-content-start.row.col-sm {
-    width:100%;
-    display: block;
-}
 
 .rating-column {
     text-align: left;
     width: 100%;
+}
+
+label.col-form-label {
+    width: 100%;
+}
+
+.addbook-date-inputbox {
+    width: 100%;
+}
+
+.justify-content-start.dates.row > .col-form-label.second {
+    height: 24% !important;
+}
+
+
+.rating-column > .col-2 {
+    max-width: 100% !important;
 }
 
 #rating {
@@ -88,6 +119,7 @@ hr {
 
 .custom-select, .selectpicker {
     height: 2.5rem !important;
+    padding-right: 15px;
 }
 
 .bootstrap-select .btn {
